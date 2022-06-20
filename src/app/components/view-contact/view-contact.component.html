@@ -1,0 +1,55 @@
+<div class="container mt-3">
+    <div class="row">
+        <p class="h3 fw-bold tex-danger">
+            View Contact
+        </p>
+        <p class="fst-italic">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, sunt in adipisci atque asperiores, quidem ad veritatis earum quod eligendi est amet illo dolorum rerum ab? Dolor, excepturi suscipit eveniet voluptatibus optio quos esse, autem quam eligendi ipsa aliquam laudantium!
+        </p>
+    </div>
+</div>
+<!-- to load spinner -->
+<div *ngIf = "!loading && errorMessage">
+    <app-spinner></app-spinner>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="h4 text-danger fw-bold">
+                    {{errorMessage}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- contact details -->
+<div class="container" *ngIf = "!loading && isNotEmpty()">
+    <div class="row">
+        <div class="col-sm-4">
+            <img [src]="contact.photo" alt="" class="contact-img-big">
+        </div>
+        <div class="col-sm-6" >
+            <ul class="list-group">
+                <li class=" list-group-item list-group-item-danger">Name: <span class="fw-bold">{{contact.name}}</span></li>
+
+                <li class=" list-group-item list-group-item-danger">Email: <span class="fw-bold">{{contact.email}}</span></li>
+
+                <li class=" list-group-item list-group-item-danger">Mobile: <span class="fw-bold">{{contact.mobile}}</span></li>
+
+                <li class=" list-group-item list-group-item-danger">Company: <span class="fw-bold">{{contact.company}}</span></li>
+
+                <li class=" list-group-item list-group-item-danger">Title: <span class="fw-bold">{{contact.title}}</span></li>
+
+                <li class=" list-group-item list-group-item-danger">Group Name: <span class="fw-bold">{{group.name}}</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <a routerLink="/" class="btn btn-danger"><i class="fa fa-arrow-alt-circle-left"></i> Back</a>
+        </div>
+    </div>
+    <pre>{{contact |json}}</pre>
+    <pre>{{group | json}}</pre>
+</div>

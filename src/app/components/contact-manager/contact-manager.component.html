@@ -63,10 +63,10 @@
                             <a routerLink="/contacts/view/{{contact.id}}" class="btn btn-warning my-1">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a routerLink="/contacts/edit/{{contactId}}" class="btn btn-primary my-1">
+                            <a routerLink="/contacts/edit/{{contact.id}}" class="btn btn-primary my-1">
                                 <i class="fa fa-pen"></i>
                             </a>
-                            <button class="btn btn-danger">
+                            <button class="btn btn-danger" (click) ="deleteContact(contact.id)">
                                 <i class="fa fa-trash-alt"></i>
                             </button>
                             
@@ -76,6 +76,6 @@
             </div>
         </div>
 
-        <pre> {{contacts |json}}</pre>
+        <!-- <pre> {{contacts |json}}</pre> -->
     </div>
 </div>

@@ -12,28 +12,29 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            <form>
+            <form (ngSubmit) = "update()">
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="name">
+                    <input type="text" class="form-control" required ="true" name="name" [(ngModel)] = "contact.name" placeholder="name">
                 </div>
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Photo Url">
+                    <input type="text" required ="true" name="photo" [(ngModel)] = "contact.photo" class="form-control" placeholder="Photo Url">
                 </div>
                 <div class="mb-2">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" class="form-control" placeholder="Email" required ="true" name="email" [(ngModel)] = "contact.email" >
                 </div>
                 <div class="mb-2">
-                    <input type="number" class="form-control" placeholder="Mobile ">
+                    <input type="number" class="form-control" placeholder="Mobile " required ="true" name="mobile" [(ngModel)] = "contact.mobile" >
                 </div>
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Company">
+                    <input type="text" class="form-control" placeholder="Company" required ="true" name="company" [(ngModel)] = "contact.company" >
                 </div>
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Title">
+                    <input type="text" class="form-control" placeholder="Title" required ="true" name="title" [(ngModel)] = "contact.title" >
                 </div>
                 <div class="mb-2">
-                   <select name="" id="" class="form-control">
+                   <select class="form-control" required ="true" name="groupId" [(ngModel)] = "contact.groupId" [value] ="contact.groupId" >
                        <option value="">Select a Group</option>
+                       <option value="" *ngFor =" let group of groups" [value] ="group.id">{{group.name}}</option>
                    </select>
                 </div>
                 <div class="mb-2">
@@ -44,8 +45,8 @@
             </form>
         </div>
         <div class="col-sm-4">
-            <img src="../../../assets/images/user-icon-contact.png" alt="" class="contact-img">
+            <img [src]="contact.photo" alt="" class="contact-img">
         </div>
-
+        <!-- <pre>{{contact | json}}</pre> -->
     </div>
 </div>

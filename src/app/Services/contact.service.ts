@@ -40,7 +40,7 @@ export class ContactService {
 
   // Delete a contact
   public deleteContact(contactId:string):Observable<{}>{
-    let dataURL:string = `${environment.serverUrl}/contacts/contactId`;
+    let dataURL:string = `${environment.serverUrl}/contacts/${contactId}`;
     return this.http.delete<{}>(dataURL).pipe(catchError(this.handleError))
   }
   // get all groups

@@ -14,7 +14,7 @@
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Search User">
+                            <input type="text" class="form-control" #searchInput placeholder="Search User" (input) ="searchUser(searchInput.value)">
                         </div>
                         <div class="col">
                             <input type="submit" class="btn btn-outline-dark" value="Search">
@@ -43,8 +43,8 @@
 
 <div class="container mt-3" *ngIf ="!loading && contacts.length > 0">
     <div class="row">
-        <div class="col-md-6" *ngFor = "let contact of contacts">
-            <div class="card my-2 list-group-item-danger shadow-lg">
+        <div class="col-md-6" *ngFor = "let contact of contacts" >
+            <div class="card my-2 list-group-item-danger shadow-lg" *ngIf="searchText === '' || contact.name.toLowerCase().includes(searchText) ||contact.email.toLowerCase().includes(searchText)">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-sm-4">

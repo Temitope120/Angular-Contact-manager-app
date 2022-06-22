@@ -11,7 +11,8 @@ import { ThisReceiver } from '@angular/compiler';
 export class ContactManagerComponent implements OnInit {
   public loading:boolean = false;
   public contacts: Icontact[] = [];
-  public errorMessage: string | null = null
+  public errorMessage: string | null = null;
+  public searchText: string = "";
   constructor(private contactService: ContactService) { }
 
   ngOnInit(): void {
@@ -37,6 +38,11 @@ export class ContactManagerComponent implements OnInit {
         this.errorMessage = error
       })
     }
+  }
+
+  searchUser(searchValue: string){
+    this.searchText = searchValue;
+    console.log(searchValue)
   }
 
 }
